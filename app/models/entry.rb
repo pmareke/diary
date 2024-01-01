@@ -2,6 +2,6 @@
 
 class Entry < ApplicationRecord
   def date
-    created_at.strftime('%d/%m/%Y')
+    "#{created_at.day}#{created_at.day.ordinal} #{Date::DAYNAMES[created_at.day]}"
   end
 end

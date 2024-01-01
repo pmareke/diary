@@ -38,7 +38,7 @@ class EntriesController < ApplicationController
   def update
     respond_to do |format|
       if @entry.update(entry_params)
-        format.html { redirect_to entry_url(@entry), notice: 'Entry was successfully updated.' }
+        format.html { redirect_to entries_url, notice: 'Entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @entry }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,6 +66,6 @@ class EntriesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def entry_params
-    params.require(:entry).permit(:description)
+    params.require(:entry).permit(:title, :description, :rating, :sport)
   end
 end

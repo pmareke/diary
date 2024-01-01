@@ -12,11 +12,26 @@
   <% end %>
 
   <div class="my-5">
+    <%= form.label :title %>
+    <%= form.text_field  :title, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :description %>
     <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
+  <div class="my-5">
+    <%= form.label :rating %>
+    <%= form.range_field :rating, in: 1..10, :step => '1'%>
+  </div>
   <div class="inline">
+
+  <div class="my-5">
+    <%= form.label :sport %>
+    <%= form.check_box :sport, rows: 1 %>
+  </div>
+
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>

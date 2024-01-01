@@ -3,12 +3,27 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Entries</h1>
+  <div class="flex items-center mb-8">
     <%= link_to "New entry", new_entry_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <h1 class="ml-4 font-bold text-4xl">Entries</h1>
   </div>
 
   <div id="entries" class="min-w-full">
-    <%= render @entries %>
+    <%  @entries.each do |(year, month), month_entries| %>
+      <p class="font-bold text-3xl mb-2"><%= year %></p>
+      <div class="mb-2 ml-2">
+        <div class="font-bold text-3xl">
+          <%= Date::MONTHNAMES[month]%>
+          <span class="text-xl font-normal">
+            (<%= month_entries.size %>)
+          </span>
+        </div>
+      </div>
+      <% month_entries.each do |entry| %>
+        <div class="m-4 font-bold text-2xl ml-6">
+          <%= entry.date  %>: <%= entry.description[0..10] %>...
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>

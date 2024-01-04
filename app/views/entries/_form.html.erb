@@ -27,9 +27,15 @@
   </div>
   <div class="inline">
 
-  <div class="my-5">
-    <%= form.label :sport %>
-    <%= form.check_box :sport, rows: 1 %>
+  <div class="my-5 flex">
+    <div class="mr-2">
+      <%= form.label :sport %>
+      <%= form.check_box :sport, rows: 1 %>
+    </div>
+    <div>
+      <%= form.label :read %>
+      <%= form.check_box :read, rows: 1 %>
+    </div>
   </div>
 
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>

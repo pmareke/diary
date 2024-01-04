@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
 
   # GET /entries or /entries.json
   def index
-    @entries = Entry.all.group_by { |entry| [entry.created_at.year, entry.created_at.month] }
+    @entries = Entry.all.reverse.group_by { |entry| [entry.created_at.year, entry.created_at.month] }
   end
 
   # GET /entries/1 or /entries/1.json
